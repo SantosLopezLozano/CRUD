@@ -1,0 +1,72 @@
+/**********************************************************Ésto no es mío, es de Danni que me lo puso*******************************************************************/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    min-width: 100%;
+    width: fit-content;
+}
+
+
+
+
+/*PÁGINA DEINICIO*/
+
+/*******************************************************NAVBAR DE BOOTSTRAP**********************************************************************/
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web");
+* {
+  font-family: "Titillium Web", sans-serif;
+}
+.navbar .logo{
+  width: auto;
+  height: 50px;
+}
+.navbar .nav-item {
+  padding: 10px 20px;
+}
+.navbar .nav-link {
+  font-size: 20px;
+  margin-left: 10px;
+}
+.fa-bars {
+  color: #769ccee5;
+  font-size: 30px;
+}
+.dropdown-toggle::after {
+  content: none !important;
+}
+
+.usuario {
+  height: 50px;
+  border-radius: 50%;
+  padding: auto;
+  background-color: rgba(226, 220, 220, 0.973);
+}
+/********************************************************************HERO SECTION****************************************************************/
+#hero {
+  position: relative;
+  background-image: url('../images/fondo.jpg');
+  background-size: cover;
+  background-position: left;
+  height: 90vh;
+}
+
+/********************************************************************tabla***********************************************************************/
+#table {
+  margin-right: 6%;
+}
+
+#table tbody td, #table tbody th {
+  background-color: white;
+}
+
+.fas.fa-dumpster {
+  color: red;
+}
