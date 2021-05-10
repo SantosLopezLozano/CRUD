@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style/stylelogin.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="images/favicon.ico">
+</head>
+<body id="bodylog">
+    <section class="container">
+        <form action="form.html" method="post" id="formulario">
+            <div class="container">
+                <label for="uname"><b>Usuario</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+            
+                <label for="psw"><b>Contraseña</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+                    
+                <button type="submit">Login</button>
+                <label id="recuerdamebien">
+                    <input type="checkbox" checked="checked" name="remember"> Remember me
+                </label>
+            </div>
+            <div class="container" style="background-color:#f1f1f100">
+                <button type="button" class="cancelbtn">Cancelar</button>
+                <span class="psw">Forgot <a href="#">password?</a></span>
+            </div>
+        </form>
+    </section>
+</body>
+</html>
