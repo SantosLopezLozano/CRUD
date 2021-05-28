@@ -9,9 +9,35 @@
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script defer>
+        function validarFormulario() {
+            var ident=document.getElementById('identificador').value;
+            
+            if ( ! (/^[a-zñA-ZÑ]{6,20}$/.test(ident))) {
+                marcarError('identificador');
+                
+                return false;
+            }
+
+            return true;
+        }
+        function marcarError(elemento){
+            document.getElementById(elemento).style.borderColor="red";
+            document.getElementById(elemento+"Help").style.color="red";
+        }
+
+        function marcarCheckError(elemento){
+            document.getElementById(elemento+"Label").style.color="red";
+        }
+
+        function desmarcarError(elemento){
+            document.getElementById(elemento).style.borderColor="#ced4da";
+            document.getElementById(elemento+"Help").style.color="#666";
+        }
+    </script>
 </head>
 <body id="cuerpo">
-    <!-------------------------------------------------------------------NAVBAR----------------------------------------------------------------------------------------->
+    <!-------------------------------------------------------------------NAVBAR------------------------------------------------------------------>
     <nav class="navbar sticky-top navbar-expand-lg bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#"><img src="images/fgologo.jpg" class="logo" alt=""></a>
@@ -49,7 +75,7 @@
             </div>
         </div>
     </nav>
-    <!----------------------------------------------------------------TABLA MÁS O MENOS RESPONSIVE---------------------------------------------------------------------->
+    <!---------------------------------------------------TABLA MÁS O MENOSRESPONSIVE------------------------------------------------------------->
     <section id="hero"><section id="table">
     <div class="container table-responsive py-5" > 
             <table class="table table-bordered table-hover">
@@ -119,11 +145,11 @@
                   </tbody>
                 </table>
     </div>
-    <!------------------------------------------------------------------EL BOTÓN DE AÑADIR FILA------------------------------------------------------------------------->
+    <!----------------------------------------------------EL BOTÓN DE AÑADIR FILA------------------------------------------------------------>
     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#añadirfila">
         Añadir Servant⠀<i class="far fa-plus-square" aria-hidden="true"></i>
     </button>
-    <!------------------------------------------------------------------LO DE AñADIR UNA FILA--------------------------------------------------------------------------->
+    <!-----------------------------------------------LO DE AñADIR UNA FILA------------------------------------------------------------->
     <div class="modal fade" id="añadirfila" tabindex="-1" role="dialog" aria-labelledby="añadirfilaLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -135,12 +161,14 @@
                 </div>
                 <div class="modal-body">
                     <form action="tablas.html">
-                        <div class="container">
-                            <div class="input-contenedor">
-                                
-                                <input type="text" placeholder="Nombre del Servant">
-                            </div>
-                        </div>
+                        <div class="form-group">
+                            <label for="identificador">Introduce tu identificador:</label>
+                            <input type="text" class="form-control" 
+                                   id="identificador" name="identificador"
+                                   aria-describedby="identificadorHelp"
+                                   onfocus="desmarcarError('identificador')">
+                            <small id="identificadorHelp" class="form-text">Solo letras, entre 6 y 20 caracteres</small>
+                          </div>
                         <div class="input-multiseleccion">
                             <label for="exampleFormControlSelect1">Género</label>
                             <select class="form-control" id="exampleFormControlSelect1">
@@ -154,7 +182,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-info" data-dismiss="modal">Guardar</button>
+                    <button onclick="return validarFormulario()" type="submit" class="btn btn-primary">Aceptar</button>
+                    
                 </div>
             </div>
         </div>
@@ -172,9 +201,14 @@
                 <div class="modal-body">
                     <form action="tablas.html">
                         <div class="container">
-                            <div class="input-contenedor">
-                                <input type="text" placeholder="Nombre Del Servant">
-                            </div>
+                            <div class="form-group">
+                                <label for="identificador">Introduce tu identificador:</label>
+                                <input type="text" class="form-control" 
+                                       id="identificador" name="identificador"
+                                       aria-describedby="identificadorHelp"
+                                       onfocus="desmarcarError('identificador')">
+                                <small id="identificadorHelp" class="form-text">Solo letras, entre 6 y 20 caracteres</small>
+                              </div>
                             <div class="input-multiseleccion">
                                 <label for="exampleFormControlSelect1">Clase</label>
                                 <select class="form-control" id="exampleFormControlSelect1">
@@ -189,7 +223,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-info" data-dismiss="modal">Guardar</button>
+                    <button onclick="return validarFormulario()" type="submit" class="btn btn-primary">Aceptar</button>
                 </div>
             </div>
     </div>
